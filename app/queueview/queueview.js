@@ -9,13 +9,13 @@ angular.module('myApp.queueview', ['ngRoute'])
         });
     }])
     .controller('QueueCtrl', function ($scope, $http) {
-        $http.get("http://localhost:8080/queue/getQueueList")
+        $http.get("http://localhost:8080/queue/queueList")
             .then(function (result) {
-                if (result.data.success){
+                if (result.data.success) {
                     $scope.data = result.data.data;
                     $scope.pagination = result.data.pagination;
-                }else{
+                } else {
                     $scope.message = result.message;
                 }
             });
-    })  ;
+    });
