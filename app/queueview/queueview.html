@@ -33,14 +33,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="x in data">
+            <tr ng-repeat="x in data" style="text-align: center">
                 <td style="{{$even? 'background-color: #f1f1f1': ''}}">{{$index+1}}</td>
                 <td style="{{$even? 'background-color: #f1f1f1': ''}}">{{x.username}}</td>
                 <td style="{{$even? 'background-color: #f1f1f1': ''}}">{{x.orderNo}}</td>
                 <td style="{{$even? 'background-color: #f1f1f1': ''}}">{{x.currentSort}}</td>
                 <td>
-                    <button>前置</button>
-                    <button>后置</button>
+                    <button ng-click="moveup(x.id)">前置</button>
+                    <button ng-click="movedown(x.id)">后置</button>
                 </td>
             </tr>
             </tbody>

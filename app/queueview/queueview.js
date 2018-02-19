@@ -18,4 +18,24 @@ angular.module('myApp.queueview', ['ngRoute'])
                     $scope.message = result.message;
                 }
             });
+        $scope.moveup = function (id) {
+            $http.post("http://localhost:8080/queue/moveUpQueue", id)
+                .then(function (result) {
+                    if (result.data.success) {
+                        $scope.tools.alert(result.data.message);
+                    } else {
+                        $scope.tools.alert("更新成功!");
+                    }
+                });
+        };
+        $scope.movedown = function (id) {
+            $http.post("http://localhost:8080/queue/moveDownQueue", id)
+                .then(function (result) {
+                    if (result.data.success) {
+                        $scope.tools.alert(result.data.message);
+                    } else {
+                        $scope.tools.alert("更新成功!");
+                    }
+                });
+        };
     });
